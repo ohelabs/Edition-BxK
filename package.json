@@ -46,8 +46,12 @@
         "custom": {
             "navigation_layout": {
                 "type": "select",
-                "options": ["Logo on the left", "Logo in the middle", "Stacked"],
-                "default": "Logo on the left"
+                "options": [
+                    "Logo on the left",
+                    "Logo in the middle",
+                    "Stacked"
+                ],
+                "default": "Logo in the middle"
             },
             "title_font": {
                 "type": "select",
@@ -137,5 +141,6 @@
         "postcss": "8.4.41",
         "postcss-easy-import": "4.0.0",
         "pump": "3.0.0"
-    }
+    },
+    "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
 }
