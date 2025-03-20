@@ -141,5 +141,6 @@
         "postcss": "8.5.3",
         "postcss-easy-import": "4.0.0",
         "pump": "3.0.2"
-    }
+    },
+    "dependencies": {}
 }
