@@ -1,7 +1,7 @@
 {
     "name": "edition-bxk",
     "description": "A clean, minimal newsletter theme for the Ghost publishing platform with a dark mode",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "private": true,
     "engines": {
         "ghost": ">=5.0.0"
