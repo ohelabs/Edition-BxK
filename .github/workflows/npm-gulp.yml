@@ -34,5 +34,11 @@ jobs:
         path: dist/edition-bxk.zip
         if-no-files-found: error
         retention-days: 90 days
-  
+
+
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+          files: dist/edition-bxk.zip
           
