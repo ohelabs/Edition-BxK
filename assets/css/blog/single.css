@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.page-template .single-header {
+    margin-top: var(--header-spacing);
+}
+
 .single-meta {
     margin-bottom: 1rem;
     font-size: 1.2rem;
@@ -22,19 +26,21 @@
     font-size: 4rem;
     line-height: 1.2;
     letter-spacing: -0.1rem;
+    word-break: break-word;
 }
 
-.has-serif-title .single-title {
-    font-family: var(--font-serif);
+.has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .single-title {
+    font-family: var(--gh-font-heading, var(--font-serif));
 }
 
 .single-excerpt {
     margin-top: 2rem;
     font-size: 1.8rem;
+    word-break: break-word;
 }
 
-.has-serif-body .single-excerpt {
-    font-family: var(--font-serif);
+.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .single-excerpt {
+    font-family: var(--gh-font-body, var(--font-serif));
 }
 
 .single-media {
