@@ -1,13 +1,5 @@
-# Edition
+# BxK Edition
 
-The newsletter theme for [Ghost](https://github.com/TryGhost/Ghost). A beautiful way to share stories with your growing audience.
-
-**Demo: https://edition.ghost.io**
-
-# Instructions
-
-1. [Download this theme](https://github.com/TryGhost/Edition/archive/main.zip)
-2. Log into Ghost, and go to the `Design` settings area to upload the zip file
 
 # Development
 
