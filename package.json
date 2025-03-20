@@ -126,11 +126,11 @@
         "zip": "gulp zip"
     },
     "devDependencies": {
-        "@tryghost/shared-theme-assets": "2.4.5",
-        "autoprefixer": "10.4.20",
+        "@tryghost/shared-theme-assets": "2.5.0",
+        "autoprefixer": "10.4.21",
         "beeper": "2.1.0",
-        "cssnano": "7.0.5",
-        "gscan": "4.43.3",
+        "cssnano": "7.0.6",
+        "gscan": "4.47.0",
         "gulp": "5.0.0",
         "gulp-concat": "2.6.1",
         "gulp-livereload": "4.0.2",
@@ -138,9 +138,8 @@
         "gulp-uglify": "3.0.2",
         "gulp-zip": "5.1.0",
         "ordered-read-streams": "2.0.0",
-        "postcss": "8.4.41",
+        "postcss": "8.5.3",
         "postcss-easy-import": "4.0.0",
-        "pump": "3.0.0"
-    },
-    "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+        "pump": "3.0.2"
+    }
 }
