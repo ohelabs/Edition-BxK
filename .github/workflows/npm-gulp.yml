@@ -25,8 +25,8 @@ jobs:
     - name: Build
       run: |
         corepack enable
-        yarn
-        yarn zip
+        pnpm install
+        pnpm zip
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
