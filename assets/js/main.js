@@ -3,6 +3,7 @@ var body = document.body;
 var timeout;
 var st = 0;
 
+darkmode();
 cover();
 featured();
 pagination(false);
@@ -29,6 +30,47 @@ function portalButton() {
         body.classList.add('portal-visible');
     } else {
         body.classList.remove('portal-visible');
+    }
+}
+
+function darkmode() {
+    'use strict';
+
+    // The initial theme is applied flash-free by an inline script in the
+    // <head>; here we wire up the toggle and keep following the OS until the
+    // visitor makes an explicit choice.
+    function apply(theme) {
+        html.setAttribute('data-theme', theme);
+        html.classList.toggle('dark-mode', theme === 'dark');
+    }
+
+    var toggles = document.querySelectorAll('[data-theme-toggle]');
+    for (var i = 0; i < toggles.length; i++) {
+        toggles[i].addEventListener('click', function () {
+            var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem('theme', next);
+            } catch (e) {}
+            apply(next);
+        });
+    }
+
+    if (window.matchMedia) {
+        var query = window.matchMedia('(prefers-color-scheme: dark)');
+        var onChange = function (event) {
+            var stored;
+            try {
+                stored = localStorage.getItem('theme');
+            } catch (e) {}
+            if (!stored) {
+                apply(event.matches ? 'dark' : 'light');
+            }
+        };
+        if (query.addEventListener) {
+            query.addEventListener('change', onChange);
+        } else if (query.addListener) {
+            query.addListener(onChange);
+        }
     }
 }
 

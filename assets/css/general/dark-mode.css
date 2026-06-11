@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Dark mode
+   --------------------------------------------------------------------------
+   Activated by `data-theme="dark"` on the <html> element. The attribute is
+   set flash-free by an inline script in default.hbs (see <head>) and toggled
+   at runtime by main.js. It defaults to the visitor's OS preference and
+   remembers a manual choice in localStorage.
+
+   The base theme reuses some color tokens for more than one purpose — e.g.
+   `--white-color` is the page surface *and* the colour of text painted over
+   cover images, and `--darker-gray-color` is the heading colour *and* the
+   background of the "dark header" state. Those overloaded tokens are left
+   alone and the affected surfaces are patched directly, so text-over-image
+   and the accent button keep their light colours.
+   ========================================================================== */
+
+html[data-theme="dark"] {
+    /* Local palette */
+    --dm-bg: #16181d;        /* page background */
+    --dm-surface: #1e222a;   /* cards, inputs, dropdowns, table heads */
+
+    /* Text */
+    --primary-text-color: #d6d8dd;
+    --color-primary-text: #d6d8dd;
+    --secondary-text-color: #989da6;
+    --color-secondary-text: #989da6;
+    --dark-gray-color: #b6bcc6;
+    --color-dark-gray: #b6bcc6;
+
+    /* Headings + default links (also the dark-header background — re-patched below) */
+    --darker-gray-color: #f2f3f5;
+    --color-darker-gray: #f2f3f5;
+
+    /* Subtle surfaces & borders */
+    --lighter-gray-color: #1c1f25;   /* code blocks, quiet sections */
+    --color-lighter-gray: #1c1f25;
+    --light-gray-color: #2b2f37;     /* borders, dividers */
+    --color-light-gray: #2b2f37;
+    --mid-gray-color: #3a3f49;
+    --color-mid-gray: #3a3f49;
+
+    /* Ghost editor cards (audio / bookmark / file / product) */
+    --background-color: var(--dm-surface);
+
+    color-scheme: dark;
+}
+
+/* --- Page & header surfaces -------------------------------------------------
+   The base theme paints these with --white-color, which we keep meaning
+   "white" so text-over-image stays legible — so set the surfaces directly. */
+html[data-theme="dark"] body,
+html[data-theme="dark"] .gh-head {
+    background-color: var(--dm-bg);
+}
+
+/* Mobile menu panel (header opened on a normal, non-image header) */
+html[data-theme="dark"] .is-head-open:not(.is-head-brand):not(.is-head-dark):not(.is-head-transparent) #gh-head,
+html[data-theme="dark"] .is-head-open #gh-head .gh-head-actions {
+    background-color: var(--dm-bg);
+}
+
+/* Keep the explicit "dark header" state dark — it uses --darker-gray-color as
+   its background, which we flipped to a light text colour above. */
+html[data-theme="dark"] .is-head-dark:not(.is-head-transparent) .gh-head,
+html[data-theme="dark"] .is-head-open.is-head-dark #gh-head,
+html[data-theme="dark"] .is-head-open.is-head-dark #gh-head .gh-head-actions {
+    background-color: var(--dm-bg);
+}
+
+/* --- Navigation dropdown ---------------------------------------------------- */
+html[data-theme="dark"] .gh-dropdown {
+    background-color: var(--dm-surface);
+}
+
+html[data-theme="dark"] .gh-dropdown li a {
+    color: var(--darker-gray-color) !important;
+}
+
+/* --- Inputs, outline buttons, table heads ----------------------------------
+   All painted with --white-color by the base theme. The accent button
+   (.gh-btn / .gh-primary-btn) and the cover-image form keep their own colours. */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select,
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .gh-content table:not(.gist table) th {
+    background-color: var(--dm-surface);
+}
+
+/* --- Sticky month label (translucent white wash in the base theme) ---------- */
+html[data-theme="dark"] .feed-month {
+    color: var(--darker-gray-color);
+    background-color: rgba(22, 24, 29, 0.8);
+}
+
+/* --- Table scroll-shadow fades (hardcoded #fff in the base theme) ----------- */
+html[data-theme="dark"] .gh-content table:not(.gist table) td:first-child {
+    background-image: linear-gradient(90deg, var(--dm-bg) 50%, rgba(22, 24, 29, 0));
+}
+
+html[data-theme="dark"] .gh-content table:not(.gist table) td:last-child {
+    background-image: linear-gradient(270deg, var(--dm-bg) 50%, rgba(22, 24, 29, 0));
+}
+
+/* --- Dark-mode toggle button ------------------------------------------------
+   Show the moon in light mode (click → dark) and the sun in dark mode. */
+.gh-darkmode .icon-sun {
+    display: none;
+}
+
+html[data-theme="dark"] .gh-darkmode .icon-moon {
+    display: none;
+}
+
+html[data-theme="dark"] .gh-darkmode .icon-sun {
+    display: block;
+}

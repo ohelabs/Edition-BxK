@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title page=(t " (Page %)")}}</title>
 
+    {{!-- Set the colour scheme before first paint to avoid a flash.
+          Defaults to the visitor's OS preference; a manual choice is
+          remembered in localStorage. Kept in sync at runtime by main.js. --}}
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark-mode');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 
     {{ghost_head}}
@@ -40,6 +56,10 @@
             </nav>
 
             <div class="gh-head-actions">
+                <button class="gh-darkmode gh-icon-btn" type="button" aria-label="{{t "Toggle dark mode"}}" data-theme-toggle>
+                    {{> "icons/moon"}}
+                    {{> "icons/sun"}}
+                </button>
                 {{#unless @site.members_enabled}}
                     {{^match @custom.navigation_layout "Stacked"}}
                         <button class="gh-search gh-icon-btn" aria-label="{{t "Search this site"}}" data-ghost-search>{{> "icons/search"}}</button>

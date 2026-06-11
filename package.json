@@ -1,21 +1,23 @@
 {
-    "name": "edition",
-    "description": "A clean, minimal newsletter theme for the Ghost publishing platform",
-    "version": "1.0.0",
+    "name": "edition-bxk",
+    "description": "A clean, minimal newsletter theme for the Ghost publishing platform with a dark mode",
+    "version": "2.0.0",
     "private": true,
     "engines": {
         "ghost": ">=5.0.0"
     },
     "license": "MIT",
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Ben Ohe",
+        "email": "Ben@ohelabs.com",
+        "url": "https://benandkayla.com"
     },
     "keywords": [
         "ghost",
         "theme",
-        "ghost-theme"
+        "ghost-theme",
+        "bxk",
+        "dark"
     ],
     "docs": "https://edition.ghost.io/about/",
     "config": {
