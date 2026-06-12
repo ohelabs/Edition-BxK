@@ -42,7 +42,11 @@ html[data-theme="dark"] {
     /* Ghost editor cards (audio / bookmark / file / product) */
     --background-color: var(--dm-surface);
 
-    color-scheme: dark;
+    /* Dark scrollbars/controls — set via scrollbar-color rather than
+       `color-scheme: dark`, because color-scheme breaks the transparency of
+       Ghost's injected sodo-search iframe (its frosted-blur backdrop turns
+       into a flat light-gray panel). */
+    scrollbar-color: #4a4f57 var(--dm-bg);
 }
 
 /* --- Page & header surfaces -------------------------------------------------
